@@ -31,7 +31,7 @@ def makeResponse(req):
         if date in weather[i]['dt_txt']:
             condition= weather[i]['weather'][0]['description']
             break
-    speech = "El Clima en "+city+" el "+date+" es"
+    speech = "El Clima en "+city+" el "+date+" es"+condition
     return{
     "speech":speech,
     "displayText":speech,
@@ -40,5 +40,5 @@ def makeResponse(req):
 
 if __name__ == '__main__':
     port= int(os.getenv('PORT',5000))
-    print ("Iniciando aplicacion en el puerto %d"+%port)
+    print ("Iniciando aplicacion en el puerto %d" % port)
     app.run(debug=False, port=port, host='0.0.0.0')
